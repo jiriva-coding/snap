@@ -3,6 +3,12 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  safelist: [
+    'bg-accent-blue', 'bg-accent-emerald', 'bg-accent-purple',
+    'text-accent-blue', 'text-accent-emerald', 'text-accent-purple',
+    'bg-accent-blue/10', 'bg-accent-emerald/10', 'bg-accent-purple/10',
+    'border-accent-blue', 'border-accent-emerald', 'border-accent-purple',
+  ],
   prefix: "",
   theme: {
     container: {
