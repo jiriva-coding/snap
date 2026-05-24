@@ -1,96 +1,93 @@
 'use client'
 
-import { Play, ExternalLink } from 'lucide-react'
-import { Button } from './ui/button'
+import { Smartphone, Tablet, Battery, Droplets } from 'lucide-react'
 
 export function Portfolio() {
+  const cases = [
+    {
+      icon: Smartphone,
+      device: 'iPhone 13',
+      title: 'Výměna prasklého displeje',
+      duration: '45 minut',
+      price: 'od 2 490 Kč',
+      color: 'accent-blue',
+    },
+    {
+      icon: Battery,
+      device: 'Samsung Galaxy S22',
+      title: 'Výměna baterie',
+      duration: '30 minut',
+      price: 'od 1 290 Kč',
+      color: 'accent-emerald',
+    },
+    {
+      icon: Tablet,
+      device: 'iPad Pro 11"',
+      title: 'Oprava nabíjecího konektoru',
+      duration: '60 minut',
+      price: 'od 1 890 Kč',
+      color: 'accent-purple',
+    },
+    {
+      icon: Droplets,
+      device: 'Xiaomi Redmi Note 12',
+      title: 'Záchrana po polití kapalinou',
+      duration: '24 hodin',
+      price: 'od 990 Kč',
+      color: 'accent-blue',
+    },
+  ]
+
   return (
-    <section id="portfolio" className="relative py-32 bg-background">
+    <section id="services" className="relative py-32 bg-background">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-3 h-3 bg-accent-emerald rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-muted-foreground">
-              Featured Work
-            </span>
+            <span className="text-sm font-semibold text-muted-foreground">Nejčastější opravy</span>
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
-          
+
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-8">
-            <span className="block mb-2">Creative Productions</span>
+            <span className="block">Co opravujeme</span>
           </h2>
-          
-          <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Our latest commercial for Hampton - exploring the lonely journey of startup founders and the power of community.
+
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Přehled nejčastějších oprav, se kterými za námi zákazníci přicházejí.
+            Ceny jsou orientační — přesnou nabídku připravíme po bezplatné diagnostice.
           </p>
         </div>
 
-        {/* Featured Video */}
-        <div className="max-w-6xl mx-auto">
-          <div className="relative bg-card clean-border rounded-3xl overflow-hidden elevated-shadow">
-            {/* Video Embed */}
-            <div className="relative">
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/fIbDWDh6aYw?rel=0&showinfo=0&modestbranding=1"
-                  title="Hampton Commercial - The Lonely Journey"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full rounded-t-3xl"
-                />
-              </div>
-              
-              {/* Floating Status Badge */}
-              <div className="absolute top-6 right-6">
-                <span className="glass-effect rounded-xl px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
-                  Latest Project
-                </span>
-              </div>
-            </div>
-
-            {/* Project Details */}
-            <div className="p-8 lg:p-12">
-              <div className="flex-1">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="bg-accent-purple/10 text-accent-purple px-3 py-1 rounded-full text-sm font-medium">
-                    Commercial
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    Client: Hampton
-                  </span>
-                </div>
-                
-                <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                  The Lonely Journey
-                </h3>
-                
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  A powerful commercial exploring the isolation that startup founders face and how joining Hampton's community can transform that journey. This piece captures the emotional weight of entrepreneurship and the relief that comes with finding your tribe.
-                </p>
-                
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-                  <div>
-                    <span className="text-muted-foreground block">Industry</span>
-                    <span className="font-medium">Community Platform</span>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          {cases.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.title}
+                className="bg-card clean-border rounded-3xl p-8 elevated-shadow hover:scale-[1.02] gentle-animation"
+              >
+                <div className="flex items-start gap-6">
+                  <div className={`w-16 h-16 rounded-2xl bg-${item.color}/10 flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-8 h-8 text-${item.color}`} />
                   </div>
-                  <div>
-                    <span className="text-muted-foreground block">Style</span>
-                    <span className="font-medium">Narrative Drama</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block">Tone</span>
-                    <span className="font-medium">Emotional Journey</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block">Format</span>
-                    <span className="font-medium">Digital Commercial</span>
+                  <div className="flex-1">
+                    <p className="text-sm text-muted-foreground mb-1">{item.device}</p>
+                    <h3 className="text-2xl font-black text-foreground mb-4">{item.title}</h3>
+                    <div className="flex flex-wrap gap-4 text-sm">
+                      <div>
+                        <span className="text-muted-foreground block">Doba opravy</span>
+                        <span className="font-semibold text-foreground">{item.duration}</span>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground block">Cena</span>
+                        <span className="font-semibold text-accent-emerald">{item.price}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            )
+          })}
         </div>
       </div>
     </section>
