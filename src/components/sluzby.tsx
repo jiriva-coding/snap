@@ -2,7 +2,14 @@
 
 import { Smartphone, Tablet, Battery, Droplets } from 'lucide-react'
 
-export function Portfolio() {
+// Statické mapování Tailwind tříd pro spolehlivou kompilaci barev v produkci
+const COLOR_MAP: Record<string, { bg: string; text: string }> = {
+  'accent-blue': { bg: 'bg-accent-blue/10', text: 'text-accent-blue' },
+  'accent-emerald': { bg: 'bg-accent-emerald/10', text: 'text-accent-emerald' },
+  'accent-purple': { bg: 'bg-accent-purple/10', text: 'text-accent-purple' },
+}
+
+export function Sluzby() {
   const cases = [
     {
       icon: Smartphone,
@@ -39,7 +46,7 @@ export function Portfolio() {
   ]
 
   return (
-    <section id="services" className="relative py-32 bg-background">
+    <section id="sluzby" className="relative py-32 bg-background">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
@@ -61,14 +68,15 @@ export function Portfolio() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {cases.map((item) => {
             const Icon = item.icon
+            const colors = COLOR_MAP[item.color] || COLOR_MAP['accent-blue']
             return (
               <div
                 key={item.title}
                 className="bg-card clean-border rounded-3xl p-8 elevated-shadow hover:scale-[1.02] gentle-animation"
               >
                 <div className="flex items-start gap-6">
-                  <div className={`w-16 h-16 rounded-2xl bg-${item.color}/10 flex items-center justify-center flex-shrink-0`}>
-                    <Icon className={`w-8 h-8 text-${item.color}`} />
+                  <div className={`w-16 h-16 rounded-2xl ${colors.bg} flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-8 h-8 ${colors.text}`} />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground mb-1">{item.device}</p>

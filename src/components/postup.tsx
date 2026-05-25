@@ -1,6 +1,13 @@
 'use client'
 
-export function About() {
+// Statická mapa barev pozadí pro bezpečné fungování Tailwind JIT kompilátoru
+const BG_COLORS: Record<string, string> = {
+  'accent-blue': 'bg-accent-blue',
+  'accent-emerald': 'bg-accent-emerald',
+  'accent-purple': 'bg-accent-purple',
+}
+
+export function Postup() {
   const steps = [
     {
       number: '01',
@@ -35,7 +42,7 @@ export function About() {
   ]
 
   return (
-    <section id="about" className="relative py-32 bg-background overflow-hidden">
+    <section id="postup" className="relative py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -61,19 +68,22 @@ export function About() {
             <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-border hidden sm:block" />
 
             <div className="space-y-8">
-              {steps.map((step) => (
-                <div key={step.number} className="relative flex gap-6 items-start">
-                  <div
-                    className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-${step.color} text-white flex items-center justify-center font-black text-xl elevated-shadow z-10`}
-                  >
-                    {step.number}
+              {steps.map((step) => {
+                const bgClass = BG_COLORS[step.color] || 'bg-accent-blue'
+                return (
+                  <div key={step.number} className="relative flex gap-6 items-start">
+                    <div
+                      className={`flex-shrink-0 w-16 h-16 rounded-2xl ${bgClass} text-white flex items-center justify-center font-black text-xl elevated-shadow z-10`}
+                    >
+                      {step.number}
+                    </div>
+                    <div className="flex-1 bg-card clean-border rounded-2xl p-6 elevated-shadow">
+                      <h3 className="text-2xl font-black text-foreground mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 bg-card clean-border rounded-2xl p-6 elevated-shadow">
-                    <h3 className="text-2xl font-black text-foreground mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>

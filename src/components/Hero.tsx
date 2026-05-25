@@ -22,11 +22,12 @@ export function Hero() {
   }, [isMobileMenuOpen])
 
   const navLinks = [
-    { href: '#services', label: 'Služby' },
-    { href: '#about', label: 'Postup' },
+    { href: '#sluzby', label: 'Služby' },
+    { href: '#cenik', label: 'Ceník' },
+    { href: '#postup', label: 'Postup' },
     { href: '#status', label: 'Stav opravy' },
-    { href: '#team', label: 'Tým' },
-    { href: '#contact', label: 'Kontakt' },
+    { href: '#proc-snap', label: 'Proč SNAP' },
+    { href: '#kontakt', label: 'Kontakt' },
   ]
 
   return (
@@ -79,7 +80,7 @@ export function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
                 className="hidden sm:block bg-accent-blue text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 gentle-animation cursor-pointer"
               >
                 Objednat opravu
@@ -130,7 +131,7 @@ export function Hero() {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })
               setIsMobileMenuOpen(false)
             }}
             className="bg-accent-blue text-white font-semibold px-6 py-3 rounded-lg mt-8 cursor-pointer"
@@ -183,7 +184,7 @@ export function Hero() {
           className="mt-10 flex flex-col sm:flex-row gap-4"
         >
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-accent-blue text-white font-semibold px-8 py-4 rounded-lg hover:opacity-90 gentle-animation cursor-pointer"
           >
             Objednat opravu
