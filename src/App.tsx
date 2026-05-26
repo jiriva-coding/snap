@@ -1,4 +1,4 @@
-import { Hero } from './components/hero'
+import { Hero } from './components/Hero'
 import { Sluzby } from './components/sluzby'
 import { Cenik } from './components/cenik'
 import { Postup } from './components/postup'
@@ -7,7 +7,7 @@ import { ProcSnap } from './components/proc-snap'
 import { Faq } from './components/faq'
 // import { Team } from './components/team'
 import { Kontakt } from './components/kontakt'
-import { Footer } from './components/footer'
+import { Footer } from './components/Footer'
 
 export default function App() {
   return (
