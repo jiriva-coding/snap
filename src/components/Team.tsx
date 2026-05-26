@@ -1,6 +1,6 @@
 'use client'
 
-import { ImageWithFallback } from './figma/ImageWithFallback'
+import { ImageWithFallback } from './figma/image-with-fallback'
 import marcusPhoto from '../assets/team-member-1.png'
 import sofiaPhoto from '../assets/team-member-2.png'
 import jakePhoto from '../assets/team-member-3.png'

@@ -2,7 +2,14 @@
 
 import { Smartphone, Battery, Plug, Volume2, Camera, Droplets } from 'lucide-react'
 
-export function Services() {
+// Statické mapování Tailwind tříd pro spolehlivou kompilaci barev v produkci
+const COLOR_MAP: Record<string, { bg: string; text: string }> = {
+  'accent-blue': { bg: 'bg-accent-blue/10', text: 'text-accent-blue' },
+  'accent-emerald': { bg: 'bg-accent-emerald/10', text: 'text-accent-emerald' },
+  'accent-purple': { bg: 'bg-accent-purple/10', text: 'text-accent-purple' },
+}
+
+export function Cenik() {
   const services = [
     {
       icon: Smartphone,
@@ -49,7 +56,7 @@ export function Services() {
   ]
 
   return (
-    <section id="capabilities" className="relative py-32 bg-card/30">
+    <section id="cenik" className="relative py-32 bg-card/30">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
@@ -70,13 +77,14 @@ export function Services() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
             const Icon = service.icon
+            const colors = COLOR_MAP[service.color] || COLOR_MAP['accent-blue']
             return (
               <div
                 key={service.title}
                 className="group bg-background clean-border rounded-2xl p-8 elevated-shadow hover:scale-105 gentle-animation"
               >
-                <div className={`w-14 h-14 rounded-xl bg-${service.color}/10 flex items-center justify-center mb-6 group-hover:scale-110 gentle-animation`}>
-                  <Icon className={`w-7 h-7 text-${service.color}`} />
+                <div className={`w-14 h-14 rounded-xl ${colors.bg} flex items-center justify-center mb-6 group-hover:scale-110 gentle-animation`}>
+                  <Icon className={`w-7 h-7 ${colors.text}`} />
                 </div>
                 <h3 className="text-2xl font-black text-foreground mb-3">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>

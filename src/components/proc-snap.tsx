@@ -2,7 +2,14 @@
 
 import { Clock, ShieldCheck, Award, Truck, Wrench, Smile } from 'lucide-react'
 
-export function Awards() {
+// Statické mapování Tailwind tříd pro bezpečné sestavení produkčního CSS
+const COLOR_MAP: Record<string, { bg: string; text: string }> = {
+  'accent-blue': { bg: 'bg-accent-blue/10', text: 'text-accent-blue' },
+  'accent-emerald': { bg: 'bg-accent-emerald/10', text: 'text-accent-emerald' },
+  'accent-purple': { bg: 'bg-accent-purple/10', text: 'text-accent-purple' },
+}
+
+export function ProcSnap() {
   const guarantees = [
     {
       icon: Clock,
@@ -43,7 +50,7 @@ export function Awards() {
   ]
 
   return (
-    <section id="awards" className="relative py-20 bg-background overflow-hidden">
+    <section id="proc-snap" className="relative py-20 bg-background overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -66,13 +73,14 @@ export function Awards() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {guarantees.map((item) => {
             const Icon = item.icon
+            const colors = COLOR_MAP[item.color] || COLOR_MAP['accent-blue']
             return (
               <div
                 key={item.title}
                 className="bg-card clean-border rounded-2xl p-8 elevated-shadow hover:scale-105 gentle-animation"
               >
-                <div className={`w-14 h-14 rounded-xl bg-${item.color}/10 flex items-center justify-center mb-6`}>
-                  <Icon className={`w-7 h-7 text-${item.color}`} />
+                <div className={`w-14 h-14 rounded-xl ${colors.bg} flex items-center justify-center mb-6`}>
+                  <Icon className={`w-7 h-7 ${colors.text}`} />
                 </div>
                 <h3 className="text-2xl font-black text-foreground mb-3">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{item.description}</p>

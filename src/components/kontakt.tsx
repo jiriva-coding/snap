@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useToast } from '@/hooks/use-toast'
 import { MapPin, Phone, Mail } from 'lucide-react'
 
-export function Contact() {
+export function Kontakt() {
   const { toast } = useToast()
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', device: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -23,7 +23,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-32 bg-card/30">
+    <section id="kontakt" className="relative py-32 bg-card/30">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">

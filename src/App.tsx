@@ -1,25 +1,27 @@
-import { Hero } from './components/Hero'
-import { Portfolio } from './components/Portfolio'
-import { Services } from './components/Services'
-import { About } from './components/About'
-import { StatusTracker } from './components/StatusTracker'
-import { Awards } from './components/Awards'
-import { Team } from './components/Team'
-import { Contact } from './components/Contact'
-import { Footer } from './components/Footer'
+import { Hero } from './components/hero'
+import { Sluzby } from './components/sluzby'
+import { Cenik } from './components/cenik'
+import { Postup } from './components/postup'
+import { StatusTracker } from './components/status-tracker'
+import { ProcSnap } from './components/proc-snap'
+import { Faq } from './components/faq'
+// import { Team } from './components/team'
+import { Kontakt } from './components/kontakt'
+import { Footer } from './components/footer'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="relative" role="main">
         <Hero />
-        <Portfolio />
-        <Services />
-        <About />
+        <Sluzby />
+        <Cenik />
+        <Postup />
         <StatusTracker />
-        <Awards />
-        <Team />
-        <Contact />
+        <ProcSnap />
+        <Faq />
+        {/* <Team /> */}
+        <Kontakt />
       </main>
       <Footer />
     </div>
