@@ -27,6 +27,7 @@ export function Hero() {
     { href: '#postup', label: 'Postup' },
     { href: '#status', label: 'Stav opravy' },
     { href: '#proc-snap', label: 'Proč SNAP' },
+    { href: '#recenze', label: 'Recenze' },
     { href: '#kontakt', label: 'Kontakt' },
   ]
 
