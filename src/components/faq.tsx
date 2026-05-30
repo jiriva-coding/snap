@@ -64,7 +64,7 @@ export function Faq() {
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6">
             Často kladené otázky
           </h2>
 
@@ -87,8 +87,10 @@ export function Faq() {
                     <span>{item.question}</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-6 pt-2">
-                  {item.answer}
+                <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                  <div className="pb-6 pt-2">
+                    {item.answer}
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             ))}

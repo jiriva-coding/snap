@@ -65,7 +65,7 @@ export function Cenik() {
             <div className="w-3 h-3 bg-accent-emerald rounded-full animate-pulse" />
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-foreground">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6 text-foreground">
             Ceník oprav
           </h2>
 

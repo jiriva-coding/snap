@@ -61,7 +61,7 @@ export function ProcSnap() {
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-foreground">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6 text-foreground">
             Záruka kvality
           </h2>
 
@@ -77,7 +77,7 @@ export function ProcSnap() {
             return (
               <div
                 key={item.title}
-                className="bg-card clean-border rounded-2xl p-8 elevated-shadow hover:scale-105 gentle-animation"
+                className="bg-card clean-border rounded-2xl p-8 elevated-shadow hover-scale-105 gentle-animation"
               >
                 <div className={`w-14 h-14 rounded-xl ${colors.bg} flex items-center justify-center mb-6`}>
                   <Icon className={`w-7 h-7 ${colors.text}`} />

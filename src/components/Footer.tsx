@@ -21,8 +21,8 @@ export function Footer() {
   return (
     <footer className="relative py-20 bg-foreground text-background">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-12 gap-12">
-          <div className="col-span-12 md:col-span-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div className="col-span-1 md:col-span-4">
             <div className="flex items-center gap-2 mb-4">
               <Smartphone className="w-7 h-7 text-background" />
               <span className="font-bagel text-background text-3xl tracking-wider">SNAP</span>
@@ -39,7 +39,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-8">
+          <div className="col-span-1 md:col-span-8">
             <h4 className="font-black text-2xl text-background mb-4">Opravujeme značky</h4>
             <p className="text-background/70 text-base mb-8 leading-relaxed">
               Servisujeme prakticky všechny rozšířené značky mobilních telefonů a tabletů.

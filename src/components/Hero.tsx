@@ -121,7 +121,7 @@ export function Hero() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-3 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg"
+                className="px-4 py-4 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}

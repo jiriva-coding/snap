@@ -4,6 +4,7 @@ import { Cenik } from './components/cenik'
 import { Postup } from './components/postup'
 import { StatusTracker } from './components/status-tracker'
 import { ProcSnap } from './components/proc-snap'
+import { Recenze } from './components/recenze'
 import { Faq } from './components/faq'
 // import { Team } from './components/team'
 import { Kontakt } from './components/kontakt'
@@ -19,6 +20,7 @@ export default function App() {
         <Postup />
         <StatusTracker />
         <ProcSnap />
+        <Recenze />
         <Faq />
         {/* <Team /> */}
         <Kontakt />
