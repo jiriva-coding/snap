@@ -1,13 +1,7 @@
-'use client'
-
 import { Smartphone, Tablet, Battery, Droplets } from 'lucide-react'
+import { OptimizedGridCard } from './OptimizedGridCard'
 
-// Statické mapování Tailwind tříd pro spolehlivou kompilaci barev v produkci
-const COLOR_MAP: Record<string, { bg: string; text: string }> = {
-  'accent-blue': { bg: 'bg-accent-blue/10', text: 'text-accent-blue' },
-  'accent-emerald': { bg: 'bg-accent-emerald/10', text: 'text-accent-emerald' },
-  'accent-purple': { bg: 'bg-accent-purple/10', text: 'text-accent-purple' },
-}
+type AccentColor = 'blue' | 'emerald' | 'purple'
 
 export function Sluzby() {
   const cases = [
@@ -17,7 +11,7 @@ export function Sluzby() {
       title: 'Výměna prasklého displeje',
       duration: '45 minut',
       price: 'od 2 490 Kč',
-      color: 'accent-blue',
+      color: 'blue' as AccentColor,
     },
     {
       icon: Battery,
@@ -25,7 +19,7 @@ export function Sluzby() {
       title: 'Výměna baterie',
       duration: '30 minut',
       price: 'od 1 290 Kč',
-      color: 'accent-emerald',
+      color: 'emerald' as AccentColor,
     },
     {
       icon: Tablet,
@@ -33,7 +27,7 @@ export function Sluzby() {
       title: 'Oprava nabíjecího konektoru',
       duration: '60 minut',
       price: 'od 1 890 Kč',
-      color: 'accent-purple',
+      color: 'purple' as AccentColor,
     },
     {
       icon: Droplets,
@@ -41,7 +35,7 @@ export function Sluzby() {
       title: 'Záchrana po polití kapalinou',
       duration: '24 hodin',
       price: 'od 990 Kč',
-      color: 'accent-blue',
+      color: 'blue' as AccentColor,
     },
   ]
 
@@ -55,7 +49,7 @@ export function Sluzby() {
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-8">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-8">
             <span className="block">Co opravujeme</span>
           </h2>
 
@@ -68,32 +62,19 @@ export function Sluzby() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {cases.map((item) => {
             const Icon = item.icon
-            const colors = COLOR_MAP[item.color] || COLOR_MAP['accent-blue']
             return (
-              <div
+              <OptimizedGridCard
                 key={item.title}
-                className="bg-card clean-border rounded-3xl p-8 elevated-shadow hover:scale-[1.02] gentle-animation"
+                title={item.title}
+                badge={item.device}
+                accentColor={item.color}
+                footerMetrics={[
+                  { label: 'Doba opravy', value: item.duration },
+                  { label: 'Cena', value: item.price, highlight: true }
+                ]}
               >
-                <div className="flex items-start gap-6">
-                  <div className={`w-16 h-16 rounded-2xl ${colors.bg} flex items-center justify-center flex-shrink-0`}>
-                    <Icon className={`w-8 h-8 ${colors.text}`} />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground mb-1">{item.device}</p>
-                    <h3 className="text-2xl font-black text-foreground mb-4">{item.title}</h3>
-                    <div className="flex flex-wrap gap-4 text-sm">
-                      <div>
-                        <span className="text-muted-foreground block">Doba opravy</span>
-                        <span className="font-semibold text-foreground">{item.duration}</span>
-                      </div>
-                      <div>
-                        <span className="text-muted-foreground block">Cena</span>
-                        <span className="font-semibold text-accent-emerald">{item.price}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <Icon className="w-8 h-8" />
+              </OptimizedGridCard>
             )
           })}
         </div>

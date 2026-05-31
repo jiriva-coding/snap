@@ -112,7 +112,6 @@
   /* Ensure no elements can cause horizontal overflow */
   .container {
     max-width: 100%;
-    overflow-x: hidden;
   }
   
   /* Font utility classes */
@@ -529,33 +528,6 @@ html {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
-  }
-  
-  /* Prevent scrollbars in Team section */
-  #team,
-  section[aria-label="Team section"],
-  section[aria-label="Team section"] * {
-    overflow: visible !important;
-    max-height: none !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-  
-  #team::-webkit-scrollbar,
-  #team *::-webkit-scrollbar,
-  section[aria-label="Team section"]::-webkit-scrollbar,
-  section[aria-label="Team section"] *::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-  
-  /* Force Team section to be fully visible */
-  section[aria-label="Team section"] {
-    overflow: visible !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
   }
   
   /* Fix any absolute positioned elements that might overflow */
