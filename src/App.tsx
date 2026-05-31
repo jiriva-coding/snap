@@ -1,11 +1,12 @@
 import { Hero } from './components/Hero'
-import { Portfolio } from './components/Portfolio'
-import { Services } from './components/Services'
-import { About } from './components/About'
+import { Sluzby } from './components/Sluzby'
+import { Cenik } from './components/Cenik'
+import { Postup } from './components/Postup'
 import { StatusTracker } from './components/StatusTracker'
-import { Awards } from './components/Awards'
-import { Team } from './components/Team'
-import { Contact } from './components/Contact'
+import { ProcSnap } from './components/ProcSnap'
+import { Recenze } from './components/Recenze'
+import { Faq } from './components/Faq'
+import { Kontakt } from './components/Kontakt'
 import { Footer } from './components/Footer'
 
 export default function App() {
@@ -13,13 +14,14 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       <main className="relative" role="main">
         <Hero />
-        <Portfolio />
-        <Services />
-        <About />
+        <Sluzby />
+        <Cenik />
+        <Postup />
         <StatusTracker />
-        <Awards />
-        <Team />
-        <Contact />
+        <ProcSnap />
+        <Recenze />
+        <Faq />
+        <Kontakt />
       </main>
       <Footer />
     </div>
