@@ -1,5 +1,3 @@
-'use client'
-
 import { Clock, ShieldCheck, Award, Truck, Wrench, Smile } from 'lucide-react'
 
 // Statické mapování Tailwind tříd pro bezpečné sestavení produkčního CSS

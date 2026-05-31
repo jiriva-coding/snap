@@ -1,5 +1,3 @@
-'use client'
-
 import { Smartphone } from 'lucide-react'
 
 export function Footer() {

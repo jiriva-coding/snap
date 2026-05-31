@@ -1,14 +1,13 @@
-import { Hero } from './components/hero'
-import { Sluzby } from './components/sluzby'
-import { Cenik } from './components/cenik'
-import { Postup } from './components/postup'
-import { StatusTracker } from './components/status-tracker'
-import { ProcSnap } from './components/proc-snap'
-import { Recenze } from './components/recenze'
-import { Faq } from './components/faq'
-// import { Team } from './components/team'
-import { Kontakt } from './components/kontakt'
-import { Footer } from './components/footer'
+import { Hero } from './components/Hero'
+import { Sluzby } from './components/Sluzby'
+import { Cenik } from './components/Cenik'
+import { Postup } from './components/Postup'
+import { StatusTracker } from './components/StatusTracker'
+import { ProcSnap } from './components/ProcSnap'
+import { Recenze } from './components/Recenze'
+import { Faq } from './components/Faq'
+import { Kontakt } from './components/Kontakt'
+import { Footer } from './components/Footer'
 
 export default function App() {
   return (
@@ -22,7 +21,6 @@ export default function App() {
         <ProcSnap />
         <Recenze />
         <Faq />
-        {/* <Team /> */}
         <Kontakt />
       </main>
       <Footer />

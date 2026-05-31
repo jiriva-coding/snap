@@ -1,5 +1,3 @@
-'use client'
-
 import { Smartphone, Battery, Plug, Volume2, Camera, Droplets } from 'lucide-react'
 
 // Statické mapování Tailwind tříd pro spolehlivou kompilaci barev v produkci

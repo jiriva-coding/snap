@@ -1,6 +1,5 @@
-'use client'
-
-import { HelpCircle, MessageSquare } from 'lucide-react'
+import { useState } from 'react'
+import { HelpCircle, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
@@ -52,6 +51,17 @@ const FAQ_ITEMS = [
   },
 ]
 export function Faq() {
+  const [currentPage, setCurrentPage] = useState(1)
+  const ITEMS_PER_PAGE = 4
+  const totalPages = Math.ceil(FAQ_ITEMS.length / ITEMS_PER_PAGE)
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const displayedItems = FAQ_ITEMS.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+
+  if (currentPage > totalPages && totalPages > 0) {
+    setCurrentPage(totalPages)
+  }
+
   return (
     <section id="faq" className="relative py-24 bg-background overflow-hidden border-t border-border">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
@@ -75,7 +85,7 @@ export function Faq() {
 
         <div className="max-w-4xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {FAQ_ITEMS.map((item) => (
+            {displayedItems.map((item) => (
               <AccordionItem
                 key={item.value}
                 value={item.value}
@@ -95,6 +105,44 @@ export function Faq() {
               </AccordionItem>
             ))}
           </Accordion>
+
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-3 mt-10">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="p-3 rounded-xl border border-border bg-card/20 hover:bg-card/60 disabled:opacity-40 disabled:cursor-not-allowed gentle-animation text-foreground hover:border-accent-blue/30"
+                aria-label="Předchozí strana"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-11 h-11 rounded-xl font-bold border transition-all duration-300 ${
+                      currentPage === page
+                        ? 'bg-accent-blue border-accent-blue text-white shadow-lg shadow-accent-blue/25'
+                        : 'border-border bg-card/20 text-muted-foreground hover:text-foreground hover:border-accent-blue/40'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="p-3 rounded-xl border border-border bg-card/20 hover:bg-card/60 disabled:opacity-40 disabled:cursor-not-allowed gentle-animation text-foreground hover:border-accent-blue/30"
+                aria-label="Další strana"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          )}
 
           <div className="mt-16 bg-card/40 border border-border rounded-3xl p-8 text-center max-w-2xl mx-auto">
             <div className="inline-flex w-12 h-12 bg-accent-purple/10 rounded-full items-center justify-center mb-4">

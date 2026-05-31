@@ -1,5 +1,3 @@
-'use client'
-
 // Statická mapa barev pozadí pro bezpečné fungování Tailwind JIT kompilátoru
 const BG_COLORS: Record<string, string> = {
   'accent-blue': 'bg-accent-blue',
